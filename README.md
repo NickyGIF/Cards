@@ -3,3 +3,6 @@ It is a simple card game in which you play as the human, can pick up items, and 
 Mechanics will be explained in this README later once I add them.
 Play it through the webpage link assigned to this repo.
 Its meant for phone screens because on a normal desktop 1080p all of the cards end up being too tall for it.
+
+JS, HTML, CSS all ine one .html file
+Updated regularly
