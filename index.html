@@ -1,0 +1,1228 @@
+<head>
+
+  <style>
+  
+    #card1 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+    
+    }
+
+    #card2 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+    
+    }
+    
+    #card3 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+    
+    }
+    
+    #card4 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+    
+    }
+
+    #card5 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+     
+    }
+    
+    #card6 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+	  
+    }
+
+    #card7 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+    
+    }
+
+    #card8 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+    
+    }
+    
+    #card9 {
+
+      height: 450px;
+      width: 300px;
+      cursor: pointer;
+      background: yellow;
+	  background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;
+    
+    }
+    
+    body {
+    	
+      justify-content: center;
+      display: flex;
+	  background-color: black;
+	  color: white;
+    
+    }
+    
+    .cardContainer {
+    
+      display: grid;
+      grid-template-rows: repeat(3, 450px);
+      grid-template-columns: repeat(3, 300px);
+      gap: 0px;
+      
+    
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div class="cardContainer">
+    
+    <div id="card1"></div>
+    <div id="card2"></div>
+    <div id="card3"></div>
+    <div id="card4"></div>
+    <div id="card5"></div>
+    <div id="card6"></div>
+    <div id="card7"></div>
+    <div id="card8"></div>
+    <div id="card9"></div>
+    
+  </div>
+
+
+  <script>
+  
+    // ## Variable list ##
+    var card1Entity;
+    var card2Entity;
+    var card3Entity;
+    var card4Entity;
+    var card5Entity;
+    var card6Entity;
+    var card7Entity;
+    var card8Entity;
+    var card9Entity;
+    
+    var card1HP;
+    var card2HP;
+    var card3HP;
+    var card4HP;
+    var card5HP;
+    var card6HP;
+    var card7HP;
+    var card8HP;
+    var card9HP;
+    
+    var playerWeapon;
+	var playerWeaponHP;
+	var playerLocation;
+    
+    var selectedStart;
+	
+	var card1Roll;
+    var card2Roll;
+    var card3Roll;
+    var card4Roll;
+    var card6Roll;
+    var card7Roll;
+    var card8Roll;
+    var card9Roll;
+    
+    const card1 = document.getElementById("card1");
+    const card2 = document.getElementById("card2");
+    const card3 = document.getElementById("card3");
+    const card4 = document.getElementById("card4");
+    const card5 = document.getElementById("card5");
+    const card6 = document.getElementById("card6");
+    const card7 = document.getElementById("card7");
+    const card8 = document.getElementById("card8");
+    const card9 = document.getElementById("card9");
+    
+    card1.addEventListener("click", card1Click);
+    card2.addEventListener("click", card2Click);
+    card3.addEventListener("click", card3Click);
+    card4.addEventListener("click", card4Click);
+    card5.addEventListener("click", card5Click);
+    card6.addEventListener("click", card6Click);
+    card7.addEventListener("click", card7Click);
+    card8.addEventListener("click", card8Click);
+    card9.addEventListener("click", card9Click);
+    
+    // ## Functions ##
+    function start() {
+	
+	  playerLocation = 5;
+	  card5Entity = "player";
+	  card5.style.backgroundImage = "url('cardplayer.png')";
+	  card5.style.backgroundSize = "contain";
+      card5.style.backgroundRepeat = "no-repeat";
+      card5.style.backgroundPosition = "center";
+
+      card1Roll = Math.ceil(Math.random() * 10);
+      card2Roll = Math.ceil(Math.random() * 10);
+      card3Roll = Math.ceil(Math.random() * 10);
+      card4Roll = Math.ceil(Math.random() * 10);
+      card6Roll = Math.ceil(Math.random() * 10);
+      card7Roll = Math.ceil(Math.random() * 10);
+      card8Roll = Math.ceil(Math.random() * 10);
+      card9Roll = Math.ceil(Math.random() * 10);
+	  
+	  // Card 5 is player spawnpoint, so it wont be randomly generated.
+      
+      for (let i = 1; i < 9; i++) {
+      	
+        if (i === 1) {
+        
+          selectedStart = 1;
+          
+          if (card1Roll === 1) {
+		    createZombie();
+          	
+          } else if (card1Roll === 2) {
+            createSkelly();
+		  
+          } else if (card1Roll === 3) {
+		    createMite();
+          	
+          } else if (card1Roll === 4) {
+		    createBlob();
+          	
+          } else if (card1Roll === 5) {
+		    createKingBlob();
+          	
+          } else if (card1Roll === 6) {
+		    createSword();
+          	
+          } else if (card1Roll === 7) {
+		    createKnife();
+          	
+          } else if (card1Roll === 8) {
+		    createFireaxe();
+          	
+          } else if (card1Roll === 9) {
+		    createCoin();
+          	
+          } else if (card1Roll === 10) {
+		    createChestOfCoins();
+          	
+          }
+        
+        } else if (i === 2) {
+        	
+          selectedStart = 2;
+        	
+          if (card2Roll === 1) {
+		    createZombie();
+          	
+          } else if (card2Roll === 2) {
+            createSkelly();
+		  
+          } else if (card2Roll === 3) {
+		    createMite();
+          	
+          } else if (card2Roll === 4) {
+		    createBlob();
+          	
+          } else if (card2Roll === 5) {
+		    createKingBlob();
+          	
+          } else if (card2Roll === 6) {
+		    createSword();
+          	
+          } else if (card2Roll === 7) {
+		    createKnife();
+          	
+          } else if (card2Roll === 8) {
+		    createFireaxe();
+          	
+          } else if (card2Roll === 9) {
+		    createCoin();
+          	
+          } else if (card2Roll === 10) {
+		    createChestOfCoins();
+          	
+          }
+        
+        } else if (i === 3) {
+        	
+          selectedStart = 3;
+        	
+          if (card3Roll === 1) {
+		    createZombie();
+          	
+          } else if (card3Roll === 2) {
+            createSkelly();
+		  
+          } else if (card3Roll === 3) {
+		    createMite();
+          	
+          } else if (card3Roll === 4) {
+		    createBlob();
+          	
+          } else if (card3Roll === 5) {
+		    createKingBlob();
+          	
+          } else if (card3Roll === 6) {
+		    createSword();
+          	
+          } else if (card3Roll === 7) {
+		    createKnife();
+          	
+          } else if (card3Roll === 8) {
+		    createFireaxe();
+          	
+          } else if (card3Roll === 9) {
+		    createCoin();
+          	
+          } else if (card3Roll === 10) {
+		    createChestOfCoins();
+          	
+          }
+        
+        } else if (i === 4) {
+        	
+          selectedStart = 4;
+        	
+          if (card4Roll === 1) {
+		    createZombie();
+          	
+          } else if (card4Roll === 2) {
+            createSkelly();
+		  
+          } else if (card4Roll === 3) {
+		    createMite();
+          	
+          } else if (card4Roll === 4) {
+		    createBlob();
+          	
+          } else if (card4Roll === 5) {
+		    createKingBlob();
+          	
+          } else if (card4Roll === 6) {
+		    createSword();
+          	
+          } else if (card4Roll === 7) {
+		    createKnife();
+          	
+          } else if (card4Roll === 8) {
+		    createFireaxe();
+          	
+          } else if (card4Roll === 9) {
+		    createCoin();
+          	
+          } else if (card4Roll === 10) {
+		    createChestOfCoins();
+          	
+          }
+        
+        } else if (i === 5) {
+        	
+          selectedStart = 6;
+        	
+          // Skipping card5, card5 is player spawnpoint
+		  // Every card variable below is to be i + 1
+		  if (card6Roll === 1) {
+		    createZombie();
+          	
+          } else if (card6Roll === 2) {
+            createSkelly();
+		  
+          } else if (card6Roll === 3) {
+		    createMite();
+          	
+          } else if (card6Roll === 4) {
+		    createBlob();
+          	
+          } else if (card6Roll === 5) {
+		    createKingBlob();
+          	
+          } else if (card6Roll === 6) {
+		    createSword();
+          	
+          } else if (card6Roll === 7) {
+		    createKnife();
+          	
+          } else if (card6Roll === 8) {
+		    createFireaxe();
+          	
+          } else if (card6Roll === 9) {
+		    createCoin();
+          	
+          } else if (card6Roll === 10) {
+		    createChestOfCoins();
+          	
+          }
+        
+        } else if (i === 6) {
+        	
+          selectedStart = 7;
+        	
+		  if (card7Roll === 1) {
+		    createZombie();
+          	
+          } else if (card7Roll === 2) {
+            createSkelly();
+		  
+          } else if (card7Roll === 3) {
+		    createMite();
+          	
+          } else if (card7Roll === 4) {
+		    createBlob();
+          	
+          } else if (card7Roll === 5) {
+		    createKingBlob();
+          	
+          } else if (card7Roll === 6) {
+		    createSword();
+          	
+          } else if (card7Roll === 7) {
+		    createKnife();
+          	
+          } else if (card7Roll === 8) {
+		    createFireaxe();
+          	
+          } else if (card7Roll === 9) {
+		    createCoin();
+          	
+          } else if (card7Roll === 10) {
+		    createChestOfCoins();
+          	
+          }
+        
+        } else if (i === 7) {
+        	
+          selectedStart = 8;
+        	
+		  if (card8Roll === 1) {
+		    createZombie();
+          	
+          } else if (card8Roll === 2) {
+            createSkelly();
+		  
+          } else if (card8Roll === 3) {
+		    createMite();
+          	
+          } else if (card8Roll === 4) {
+		    createBlob();
+          	
+          } else if (card8Roll === 5) {
+		    createKingBlob();
+          	
+          } else if (card8Roll === 6) {
+		    createSword();
+          	
+          } else if (card8Roll === 7) {
+		    createKnife();
+          	
+          } else if (card8Roll === 8) {
+		    createFireaxe();
+          	
+          } else if (card8Roll === 9) {
+		    createCoin();
+          	
+          } else if (card8Roll === 10) {
+		    createChestOfCoins();
+          	
+          }
+        
+        } else if (i === 8) {
+        	
+          selectedStart = 9;
+        	
+		  if (card9Roll === 1) {
+		    createZombie();
+          	
+          } else if (card9Roll === 2) {
+            createSkelly();
+		  
+          } else if (card9Roll === 3) {
+		    createMite();
+          	
+          } else if (card9Roll === 4) {
+		    createBlob();
+          	
+          } else if (card9Roll === 5) {
+		    createKingBlob();
+          	
+          } else if (card9Roll === 6) {
+		    createSword();
+          	
+          } else if (card9Roll === 7) {
+		    createKnife();
+          	
+          } else if (card9Roll === 8) {
+		    createFireaxe();
+          	
+          } else if (card9Roll === 9) {
+		    createCoin();
+          	
+          } else if (card9Roll === 10) {
+		    createChestOfCoins();
+          	
+          }
+        
+        }
+      
+      } // CLOSES FOR LOOP
+
+      // Add "randomize hp" function to be called here, at the end.
+
+    } // CLOSES FUNCTION
+	
+	// ## List of entities with ther ID. ##
+	
+	// ## Functions to create them below. ##
+	
+    // 1 - Zombie
+    // 2 - Skeleton
+    // 3 - Mite
+    // 4 - Blob
+    // 5 - King Blob
+    // 6 - Sword
+    // 7 - Knife
+    // 8 - Fireaxe
+    // 9 - Coin
+    // 10 - Chest of coins
+	
+	function createZombie() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "zombie";
+		card1.style.backgroundImage = "url('cardzombie.png')";
+		card1HP = Math.ceil(Math.random() * 15);
+		card1.innerHTML = card1HP;
+	  
+	  } else if (selectedStart === 2) {
+	    card2Entity = "zombie";
+		card2.style.backgroundImage = "url('cardzombie.png')";
+		card2HP = Math.ceil(Math.random() * 15);
+		card2.innerHTML = card2HP;
+	  
+	  } else if (selectedStart === 3) {
+		card3Entity = "zombie";
+		card3.style.backgroundImage = "url('cardzombie.png')";
+		card3HP = Math.ceil(Math.random() * 15);
+		card3.innerHTML = card3HP;
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "zombie";
+		card4.style.backgroundImage = "url('cardzombie.png')";
+		card4HP = Math.ceil(Math.random() * 15);
+		card4.innerHTML = card4HP;
+	  
+	  } else if (selectedStart === 5) {
+	    card5Entity = "zombie";
+		card5.style.backgroundImage = "url('cardzombie.png')";
+		card5HP = Math.ceil(Math.random() * 15);
+		card5.innerHTML = card5HP;
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "zombie";
+		card6.style.backgroundImage = "url('cardzombie.png')";
+		card6HP = Math.ceil(Math.random() * 15);
+		card6.innerHTML = card6HP;
+	  
+	  } else if (selectedStart === 7) {
+	    card7Entity = "zombie";
+		card7.style.backgroundImage = "url('cardzombie.png')";
+		card7HP = Math.ceil(Math.random() * 15);
+		card7.innerHTML = card7HP;
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "zombie";
+		card8.style.backgroundImage = "url('cardzombie.png')";
+		card8HP = Math.ceil(Math.random() * 15);
+		card8.innerHTML = card8HP;
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "zombie";
+		card9.style.backgroundImage = "url('cardzombie.png')";
+		card9HP = Math.ceil(Math.random() * 15);
+		card9.innerHTML = card9HP;
+	  
+	  }
+	
+	}
+	
+	function createSkelly() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "skelly";
+		card1.style.backgroundImage = "url('cardskelly.png')";
+		card1HP = Math.ceil(Math.random() * 10);
+		card1.innerHTML = card1HP;
+	  
+	  } else if (selectedStart === 2) {
+	    card2Entity = "skelly";
+		card2.style.backgroundImage = "url('cardskelly.png')";
+		card2HP = Math.ceil(Math.random() * 10);
+		card2.innerHTML = card2HP;
+	  
+	  } else if (selectedStart === 3) {
+		card3Entity = "skelly";
+		card3.style.backgroundImage = "url('cardskelly.png')";
+		card3HP = Math.ceil(Math.random() * 10);
+		card3.innerHTML = card3HP;
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "skelly";
+		card4.style.backgroundImage = "url('cardskelly.png')";
+		card4HP = Math.ceil(Math.random() * 10);
+		card4.innerHTML = card4HP;
+	  
+	  } else if (selectedStart === 5) {
+	    card5Entity = "skelly";
+		card5.style.backgroundImage = "url('cardskelly.png')";
+		card5HP = Math.ceil(Math.random() * 10);
+		card5.innerHTML = card5HP;
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "skelly";
+		card6.style.backgroundImage = "url('cardskelly.png')";
+		card6HP = Math.ceil(Math.random() * 10);
+		card6.innerHTML = card6HP;
+	  
+	  } else if (selectedStart === 7) {
+	    card7Entity = "skelly";
+		card7.style.backgroundImage = "url('cardskelly.png')";
+		card7HP = Math.ceil(Math.random() * 10);
+		card7.innerHTML = card7HP;
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "skelly";
+		card8.style.backgroundImage = "url('cardskelly.png')";
+		card8HP = Math.ceil(Math.random() * 10);
+		card8.innerHTML = card8HP;
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "skelly";
+		card9.style.backgroundImage = "url('cardskelly.png')";
+		card9HP = Math.ceil(Math.random() * 10);
+		card9.innerHTML = card9HP;
+	  
+	  }
+	
+	}
+	
+	function createMite() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "mite";
+		card1.style.backgroundImage = "url('cardmite.png')";
+		card1HP = Math.ceil(Math.random() * 5);
+		card1.innerHTML = card1HP;
+	  
+	  } else if (selectedStart === 2) {
+	    card2Entity = "mite";
+		card2.style.backgroundImage = "url('cardmite.png')";
+		card2HP = Math.ceil(Math.random() * 5);
+		card2.innerHTML = card2HP;
+	  
+	  } else if (selectedStart === 3) {
+		card3Entity = "mite";
+		card3.style.backgroundImage = "url('cardmite.png')";
+		card3HP = Math.ceil(Math.random() * 5);
+		card3.innerHTML = card3HP;
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "mite";
+		card4.style.backgroundImage = "url('cardmite.png')";
+		card4HP = Math.ceil(Math.random() * 5);
+		card4.innerHTML = card4HP;
+	  
+	  } else if (selectedStart === 5) {
+	    card5Entity = "mite";
+		card5.style.backgroundImage = "url('cardmite.png')";
+		card5HP = Math.ceil(Math.random() * 5);
+		card5.innerHTML = card5HP;
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "mite";
+		card6.style.backgroundImage = "url('cardmite.png')";
+		card6HP = Math.ceil(Math.random() * 5);
+		card6.innerHTML = card6HP;
+
+	  } else if (selectedStart === 7) {
+	    card7Entity = "mite";
+		card7.style.backgroundImage = "url('cardmite.png')";
+		card7HP = Math.ceil(Math.random() * 5);
+		card7.innerHTML = card7HP;
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "mite";
+		card8.style.backgroundImage = "url('cardmite.png')";
+		card8HP = Math.ceil(Math.random() * 5);
+		card8.innerHTML = card8HP;
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "mite";
+		card9.style.backgroundImage = "url('cardmite.png')";
+		card9HP = Math.ceil(Math.random() * 5);
+		card9.innerHTML = card9HP;
+	  
+	  }
+	
+	}
+	
+	function createBlob() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "blob";
+		card1.style.backgroundImage = "url('cardblob.png')";
+		card1HP = Math.ceil(Math.random() * 8);
+		card1.innerHTML = card1HP;
+	  
+	  } else if (selectedStart === 2) {
+	    card2Entity = "blob";
+		card2.style.backgroundImage = "url('cardblob.png')";
+		card2HP = Math.ceil(Math.random() * 8);
+		card2.innerHTML = card2HP;
+	  
+	  } else if (selectedStart === 3) {
+		card3Entity = "blob";
+		card3.style.backgroundImage = "url('cardblob.png')";
+		card3HP = Math.ceil(Math.random() * 8);
+		card3.innerHTML = card3HP;
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "blob";
+		card4.style.backgroundImage = "url('cardblob.png')";
+		card4HP = Math.ceil(Math.random() * 8);
+		card4.innerHTML = card4HP;
+	  
+	  } else if (selectedStart === 5) {
+	    card5Entity = "blob";
+		card5.style.backgroundImage = "url('cardblob.png')";
+		card5HP = Math.ceil(Math.random() * 8);
+		card5.innerHTML = card5HP;
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "blob";
+		card6.style.backgroundImage = "url('cardblob.png')";
+		card6HP = Math.ceil(Math.random() * 8);
+		card6.innerHTML = card6HP;
+	  
+	  } else if (selectedStart === 7) {
+	    card7Entity = "blob";
+		card7.style.backgroundImage = "url('cardblob.png')";
+		card7HP = Math.ceil(Math.random() * 8);
+		card7.innerHTML = card7HP;
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "blob";
+		card8.style.backgroundImage = "url('cardblob.png')";
+		card8HP = Math.ceil(Math.random() * 8);
+		card8.innerHTML = card8HP;
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "blob";
+		card9.style.backgroundImage = "url('cardblob.png')";
+		card9HP = Math.ceil(Math.random() * 8);
+		card9.innerHTML = card9HP;
+	  
+	  }
+	
+	}
+	
+	function createKingBlob() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "kingblob";
+		card1.style.backgroundImage = "url('cardkingblob.png')";
+		card1HP = Math.ceil(Math.random() * 12);
+		
+		if (card1HP < 8) {
+			card1HP = 8;
+		}
+		
+		card1.innerHTML = card1HP;
+	  
+	  } else if (selectedStart === 2) {
+	    card2Entity = "kingblob";
+		card2.style.backgroundImage = "url('cardkingblob.png')";
+		card2HP = Math.ceil(Math.random() * 12);
+		
+		if (card2HP < 8) {
+			card2HP = 8;
+		}
+		
+		card2.innerHTML = card2HP;
+	  
+	  } else if (selectedStart === 3) {
+		card3Entity = "kingblob";
+		card3.style.backgroundImage = "url('cardkingblob.png')";
+		card3HP = Math.ceil(Math.random() * 12);
+		
+		if (card3HP < 8) {
+			card3HP = 8;
+		}
+		
+		card3.innerHTML = card2HP;
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "kingblob";
+		card4.style.backgroundImage = "url('cardkingblob.png')";
+		card4HP = Math.ceil(Math.random() * 12);
+		
+		if (card4HP < 8) {
+			card4HP = 8;
+		}
+		
+		card4.innerHTML = card4HP;
+	  
+	  } else if (selectedStart === 5) {
+	    card5Entity = "kingblob";
+		card5.style.backgroundImage = "url('cardkingblob.png')";
+		card5HP = Math.ceil(Math.random() * 12);
+		
+		if (card5HP < 8) {
+			card5HP = 8;
+		}
+		
+		card5.innerHTML = card5HP;
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "kingblob";
+		card6.style.backgroundImage = "url('cardkingblob.png')";
+		card6HP = Math.ceil(Math.random() * 12);
+		
+		if (card6HP < 8) {
+			card6HP = 8;
+		}
+		
+		card6.innerHTML = card6HP;
+
+	  } else if (selectedStart === 7) {
+	    card7Entity = "kingblob";
+		card7.style.backgroundImage = "url('cardkingblob.png')";
+        card7HP = Math.ceil(Math.random() * 12);
+		
+		if (card7HP < 8) {
+			card7HP = 8;
+		}
+		
+		card7.innerHTML = card7HP;
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "kingblob";
+		card8.style.backgroundImage = "url('cardkingblob.png')";
+		card8HP = Math.ceil(Math.random() * 12);
+		
+		if (card8HP < 8) {
+			card8HP = 8;
+		}
+		
+		card8.innerHTML = card8HP;
+		
+	  } else if (selectedStart === 9) {
+	    card9Entity = "kingblob";
+		card9.style.backgroundImage = "url('cardkingblob.png')";
+		card9HP = Math.ceil(Math.random() * 12);
+		
+		if (card9HP < 8) {
+			card9HP = 8;
+		}
+		
+		card9.innerHTML = card9HP;
+
+	  }
+	
+	}
+	
+	function createSword() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "sword";
+		card1.style.backgroundImage = "url('cardsword.png')";
+
+	  } else if (selectedStart === 2) {
+	    card2Entity = "sword";
+		card2.style.backgroundImage = "url('cardsword.png')";
+
+	  } else if (selectedStart === 3) {
+		card3Entity = "sword";
+		card3.style.backgroundImage = "url('cardsword.png')";
+
+	  } else if (selectedStart === 4) {
+		card4Entity = "sword";
+		card4.style.backgroundImage = "url('cardsword.png')";
+
+	  } else if (selectedStart === 5) {
+	    card5Entity = "sword";
+		card5.style.backgroundImage = "url('cardsword.png')";
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "sword";
+		card6.style.backgroundImage = "url('cardsword.png')";
+	  
+	  } else if (selectedStart === 7) {
+	    card7Entity = "sword";
+		card7.style.backgroundImage = "url('cardsword.png')";
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "sword";
+		card8.style.backgroundImage = "url('cardsword.png')";
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "sword";
+		card9.style.backgroundImage = "url('cardsword.png')";
+	  
+	  }
+	
+	}
+	
+	function createKnife() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "knife";
+		card1.style.backgroundImage = "url('cardknife.png')";
+	  
+	  } else if (selectedStart === 2) {
+	    card2Entity = "knife";
+		card2.style.backgroundImage = "url('cardknife.png')";
+	  
+	  } else if (selectedStart === 3) {
+		card3Entity = "knife";
+		card3.style.backgroundImage = "url('cardknife.png')";
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "knife";
+		card4.style.backgroundImage = "url('cardknife.png')";
+	  
+	  } else if (selectedStart === 5) {
+	    card5Entity = "knife";
+		card5.style.backgroundImage = "url('cardknife.png')";
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "knife";
+		card6.style.backgroundImage = "url('cardknife.png')";
+	  
+	  } else if (selectedStart === 7) {
+	    card7Entity = "knife";
+		card7.style.backgroundImage = "url('cardknife.png')";
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "knife";
+		card8.style.backgroundImage = "url('cardknife.png')";
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "knife";
+		card9.style.backgroundImage = "url('cardknife.png')";
+	  
+	  }
+	
+	}
+	
+	function createFireaxe() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "axe";
+		card1.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  } else if (selectedStart === 2) {
+	    card2Entity = "axe";
+		card2.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  } else if (selectedStart === 3) {
+		card3Entity = "axe";
+		card3.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "axe";
+		card4.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  } else if (selectedStart === 5) {
+	    card5Entity = "axe";
+		card5.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "axe";
+		card6.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  } else if (selectedStart === 7) {
+	    card7Entity = "axe";
+		card7.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "axe";
+		card8.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "axe";
+		card9.style.backgroundImage = "url('cardaxe.png')";
+	  
+	  }
+	
+	}
+	
+	function createCoin() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "coin";
+		card1.style.backgroundImage = "url('cardcoin.png')";
+	  
+	  } else if (selectedStart === 2) {
+	    card2Entity = "coin";
+		card2.style.backgroundImage = "url('cardcoin.png')";
+
+	  } else if (selectedStart === 3) {
+		card3Entity = "coin";
+		card3.style.backgroundImage = "url('cardcoin.png')";
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "coin";
+		card4.style.backgroundImage = "url('cardcoin.png')";
+		
+	  } else if (selectedStart === 5) {
+	    card5Entity = "coin";
+		card5.style.backgroundImage = "url('cardcoin.png')";
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "coin";
+		card6.style.backgroundImage = "url('cardcoin.png')";
+	  
+	  } else if (selectedStart === 7) {
+	    card7Entity = "coin";
+		card7.style.backgroundImage = "url('cardcoin.png')";
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "coin";
+		card8.style.backgroundImage = "url('cardcoin.png')";
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "coin";
+		card9.style.backgroundImage = "url('cardcoin.png')";
+	  
+	  }
+	
+	}
+	
+	function createChestOfCoins() {
+	
+	  if (selectedStart === 1) {
+	    card1Entity = "coinchest";
+		card1.style.backgroundImage = "url('cardcoinchest.png')";
+
+	  } else if (selectedStart === 2) {
+	    card2Entity = "coinchest";
+		card2.style.backgroundImage = "url('cardcoinchest.png')";
+	  
+	  } else if (selectedStart === 3) {
+		card3Entity = "coinchest";
+		card3.style.backgroundImage = "url('cardcoinchest.png')";
+	  
+	  } else if (selectedStart === 4) {
+		card4Entity = "coinchest";
+		card4.style.backgroundImage = "url('cardcoinchest.png')";
+	  
+	  } else if (selectedStart === 5) {
+	    card5Entity = "coinchest";
+		card5.style.backgroundImage = "url('cardcoinchest.png')";
+	  
+	  } else if (selectedStart === 6) {
+		card6Entity = "coinchest";
+		card6.style.backgroundImage = "url('cardcoinchest.png')";
+	  
+	  } else if (selectedStart === 7) {
+	    card7Entity = "coinchest";
+		card7.style.backgroundImage = "url('cardcoinchest.png')";
+	  
+	  } else if (selectedStart === 8) {
+	    card8Entity = "coinchest";
+		card8.style.backgroundImage = "url('cardcoinchest.png')";
+	  
+	  } else if (selectedStart === 9) {
+	    card9Entity = "coinchest";
+		card9.style.backgroundImage = "url('cardcoinchest.png')";
+	  
+	  }
+	
+	}
+	// So much to not even do the game logic yet
+	//185x269
+	
+	// ## GAMEPLAY FUNCTIONS ##
+	
+	function card1Click() {
+		
+	  if (playerLocation === 2) {
+	  
+	    if (card1Entity === "sword") {
+		
+		
+		} else if (card1Entity === "knife") {
+		
+		
+		} else if (card1Entity === "axe") {
+		
+		
+		} else if (card1Entity === "coin") {
+		
+		
+		} else if (card1Entity === "coinchest") {
+		
+		
+		} else { // Handles the rest. Special interactions above.
+		
+		
+		}
+	  
+	  
+	  } else if (playerLocation === 4) {
+	  
+	    if (card1Entity === "sword") {
+		
+		
+		} else if (card1Entity === "knife") {
+		
+		
+		} else if (card1Entity === "axe") {
+		
+		
+		} else if (card1Entity === "coin") {
+		
+		
+		} else if (card1Entity === "coinchest") {
+		
+		
+		} else { // Handles the rest. Special interactions above.
+		
+
+		}
+	  
+	  }
+		
+	}
+	
+	function card2Click() {
+		
+		
+	}
+	
+	function card3Click() {
+		
+		
+	}
+	
+	function card4Click() {
+		
+		
+	}
+	
+	function card5Click() {
+		
+		
+	}
+	
+	function card6Click() {
+		
+		
+	}
+	
+	function card7Click() {
+		
+		
+	}
+	
+	function card8Click() {
+		
+		
+	}
+	
+	function card9Click() {
+		
+		
+	}
+
+    start(); 
+  
+  </script>
+
+</body>
